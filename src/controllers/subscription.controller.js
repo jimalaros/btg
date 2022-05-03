@@ -36,7 +36,17 @@ export const createNewSubscription = async (req, res) => {
       req.flash("success_msg", "Subscribed Successfully");
       res.redirect("/subscriptions");
     } else {
-      req.flash("error", "Not enough money");
+      req.flash("error_msg", `Not enough money to subscribe into ${fundTofind}`);
     }
   }
+};
+
+export const cancelSubscription = async (req, res) => {
+  const userToFind = await User.findById(req.user.id);
+  const subscriptionToFind = await subscription.findById(req.params.id);
+  const fundToFind = await investmentFund.find({ nameInvestmentFund: subscriptionToFind.title });
+  userToFind.money = fundToFind.investment + subscriptionToFind.total;
+  await subscription.findByIdAndDelete(req.params.id);
+  req.flash("success_msg", `Subscription cancelled successfully, money ${fundToFind.investment} charged back on the account of the user ${userToFind.name}`);
+  res.redirect("/subscriptions");
 };

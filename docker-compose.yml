@@ -14,7 +14,7 @@ services:
       - .:/usr/src/app
     environment:
       - MONGODB_HOST=mongo
-      - MONGODB_DB=notesdb
+      - MONGODB_DB=FPV
       - PORT=4000
   mongo:
     container_name: database

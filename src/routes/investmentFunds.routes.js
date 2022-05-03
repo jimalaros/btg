@@ -20,12 +20,12 @@ router.get("/investmentFunds/add", isAuthenticated, newInvestmentFund);
 
 router.post("/investmentFunds/newInvestmentFund", isAuthenticated, createNewInvestmentFund);
 
-// Edit Notes
+// Edit investment funds
 router.get("/investmentFunds/edit/:id", isAuthenticated, editInvestmentFund);
 
 router.put("/investmentFunds/editInvestmentFund/:id", isAuthenticated, updateInvestmentFund);
 
-// Delete Notes
+// Delete investment funds
 router.delete("/investmentFunds/delete/:id", isAuthenticated, deleteInvestmentFund);
 
 export default router;

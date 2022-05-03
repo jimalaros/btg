@@ -9,7 +9,6 @@ import morgan from "morgan";
 import MongoStore from "connect-mongo";
 
 import indexRoutes from "./routes/index.routes";
-import notesRoutes from "./routes/notes.routes";
 import userRoutes from "./routes/users.routes";
 import investmentFundsRoutes from "./routes/investmentFunds.routes";
 import subscriptionsRoutes from "./routes/subscriptions.routes";
@@ -63,7 +62,6 @@ app.use((req, res, next) => {
 // routes
 app.use(indexRoutes);
 app.use(userRoutes);
-app.use(notesRoutes);
 app.use(investmentFundsRoutes);
 app.use(subscriptionsRoutes);
 

@@ -3,6 +3,7 @@ import {
     newSubscription,
     allSubscriptions,
     createNewSubscription,
+    cancelSubscription,
 } 
 from "../controllers/subscription.controller";
 
@@ -17,5 +18,8 @@ router.get("/subscriptions", isAuthenticated, allSubscriptions);
 router.get("/subscriptions/add", isAuthenticated, newSubscription);
 
 router.post("/subscriptions/newSubscription", isAuthenticated, createNewSubscription);
+
+// Cancel Subscriptions
+router.delete("/subscriptions/delete/:id", isAuthenticated, cancelSubscription);
 
 export default router;
